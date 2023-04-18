@@ -28,4 +28,9 @@ public class UserDaoImpl implements UserDao {
     public List<User> findAllUsers() {
         return users;
     }
+
+    @Override
+    public boolean checkUserExist(User user) {
+        return users.contains(user);
+    }
 }
