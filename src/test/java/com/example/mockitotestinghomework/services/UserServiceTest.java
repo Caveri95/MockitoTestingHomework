@@ -14,10 +14,9 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class UserServiceTest {
 
-    boolean TRUE = true;
-    boolean FALSE = false;
-    User Anna = new User("Анна");
-    User Victor = new User("Виктор");
+
+    User anna = new User("Анна");
+    User victor = new User("Виктор");
 
     @Mock
     private UserDao userDaoMock;
@@ -28,10 +27,10 @@ class UserServiceTest {
 
     @Test
     public void checkUserExist() {
-        when(userDaoMock.checkUserExist(Anna)).thenReturn(TRUE);
-        when(userDaoMock.checkUserExist(Victor)).thenReturn(FALSE);
+        when(userDaoMock.checkUserExist(anna)).thenReturn(true);
+        when(userDaoMock.checkUserExist(victor)).thenReturn(false);
 
-        Assertions.assertTrue(out.checkUserExist(Anna));
-        Assertions.assertFalse(out.checkUserExist(Victor));
+        Assertions.assertTrue(out.checkUserExist(anna));
+        Assertions.assertFalse(out.checkUserExist(victor));
     }
 }
